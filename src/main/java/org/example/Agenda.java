@@ -9,7 +9,7 @@ import java.util.List;
  * una lista de contactos junto a sus números de teléfonos
  */
 
-public class Agenda {
+public class Agenda implements AgendaInterface {
     private List<Persona> contacts;
 
     /** Constructor de la clase agenda.
@@ -26,6 +26,7 @@ public class Agenda {
      * @param phone número de teléfono
      * */
 
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -46,6 +47,7 @@ public class Agenda {
      * @param name número de teléfono
      * */
 
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -63,6 +65,7 @@ public class Agenda {
      * @param oldPhone Número antiguo
      * @param newPhone Número nuevo
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -81,6 +84,7 @@ public class Agenda {
      * @return lista de contactos
      */
 
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
